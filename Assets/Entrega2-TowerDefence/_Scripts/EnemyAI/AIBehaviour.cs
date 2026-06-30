@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -25,7 +22,8 @@ public class AIBehaviour : MonoBehaviour
 
     private void Start()
     {
-        SetNewRoute(patrolRoute);
+        if (patrolRoutes != null)
+            SetNewRoute(patrolRoute);
     }
 
     #region Behaviours
@@ -162,7 +160,7 @@ public class AIBehaviour : MonoBehaviour
 
     private Vector3 CalculateTargetDirection(Vector3 target)
     {
-        return (target - transform.position).normalized * (maxSpeed * Time.fixedDeltaTime);
+        return (target - transform.position).normalized * maxSpeed;
     }
 
     private Vector3 CalculateSteeringDirection(Vector3 targetDirection, Vector3 currentVelocity)
@@ -193,7 +191,7 @@ public class AIBehaviour : MonoBehaviour
 
     private Vector3 CalculateWanderDirection(Vector3 circleCenter, Vector3 displacement)
     {
-        return (circleCenter + displacement).normalized * (maxSpeed * Time.fixedDeltaTime);
+        return (circleCenter + displacement).normalized * maxSpeed;
     }
 
     private Vector3 CalculateFinalDirection(Vector3 steeringDirection, Vector3 currentVelocity)
