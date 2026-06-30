@@ -214,52 +214,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93573634}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &142376076
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 142376078}
-  - component: {fileID: 142376077}
-  m_Layer: 0
-  m_Name: '@GameManager'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &142376077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142376076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95023816889a6b643a2a18b955816893, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  isPlayerIt: 0
-  tagCooldown: 1
---- !u!4 &142376078
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142376076}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &292305496
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,6 +435,52 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &793368258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 793368259}
+  - component: {fileID: 793368260}
+  m_Layer: 0
+  m_Name: '@GameManager'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &793368259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793368258}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.6481, y: 8.07525, z: -20.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &793368260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793368258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95023816889a6b643a2a18b955816893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  isPlayerIt: 0
+  tagCooldown: 1
 --- !u!1 &844511544
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,9 +737,14 @@ GameObject:
   - component: {fileID: 1370879136}
   - component: {fileID: 1370879143}
   - component: {fileID: 1370879134}
+  - component: {fileID: 1370879148}
+  - component: {fileID: 1370879147}
+  - component: {fileID: 1370879146}
+  - component: {fileID: 1370879145}
+  - component: {fileID: 1370879144}
   m_Layer: 0
   m_Name: AI_Enemy
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -772,11 +777,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateEnum: 1
-  anim: {fileID: 0}
+  anim: {fileID: 1370879134}
+  rb: {fileID: 1370879139}
   target: {fileID: 1457744845}
+  targetRb: {fileID: 1457744846}
   isPlayerOnSight: 0
   isIdleDone: 0
-  rb: {fileID: 0}
 --- !u!95 &1370879134
 Animator:
   serializedVersion: 7
@@ -812,9 +818,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemyAIStateMotor: {fileID: 1370879133}
+  aiBehaviour: {fileID: 1370879144}
   seekMaxSpeed: 300
   steeringMaxSpeed: 0.2
-  targetRadius: 3
 --- !u!114 &1370879137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -828,7 +834,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemyAIStateMotor: {fileID: 1370879133}
-  idleCooldown: 0
+  aiBehaviour: {fileID: 1370879144}
+  idleCooldown: 1
 --- !u!114 &1370879138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -842,6 +849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemyAIStateMotor: {fileID: 1370879133}
+  aiBehaviour: {fileID: 1370879144}
 --- !u!54 &1370879139
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -867,7 +875,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!136 &1370879140
 CapsuleCollider:
@@ -962,9 +970,91 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemyAIStateMotor: {fileID: 1370879133}
+  aiBehaviour: {fileID: 1370879144}
   fleeMaxSpeed: 300
   steeringMaxSpeed: 0.2
-  targetRadius: 3
+--- !u!114 &1370879144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370879131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f504273fce2e43947a90e5ba4f4de066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIBehaviour
+  patrolRoutes: {fileID: 0}
+  patrolRoute: 0
+  maxSpeed: 0
+  steeringMaxSpeed: 0
+  stoppingDistance: 0
+  areVectorsOnDisplay: 0
+--- !u!114 &1370879145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370879131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c4164df469be8f4a8211c290a73332d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIFollowPathState
+  m_enemyAIStateMotor: {fileID: 1370879133}
+  aiBehaviour: {fileID: 1370879144}
+  followMaxSpeed: 0
+  steeringMaxSpeed: 0
+--- !u!114 &1370879146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370879131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f79846925feefbc4cabf8331d347f1cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIWanderState
+  m_enemyAIStateMotor: {fileID: 1370879133}
+  aiBehaviour: {fileID: 1370879144}
+  wanderMaxSpeed: 0
+  steeringMaxSpeed: 0
+--- !u!114 &1370879147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370879131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a5d696229a3294c892bf417ee86bc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIPursueState
+  m_enemyAIStateMotor: {fileID: 1370879133}
+  aiBehaviour: {fileID: 1370879144}
+  pursueMaxSpeed: 0
+  steeringMaxSpeed: 0
+--- !u!114 &1370879148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370879131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8a3684ad1d6bd459813e293ab89dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AIEvadeState
+  m_enemyAIStateMotor: {fileID: 1370879133}
+  aiBehaviour: {fileID: 1370879144}
+  evadeMaxSpeed: 0
+  steeringMaxSpeed: 0
 --- !u!1 &1434388433
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,7 +1103,7 @@ GameObject:
   - component: {fileID: 1457744850}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1058,7 +1148,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!136 &1457744847
 CapsuleCollider:
@@ -1349,7 +1439,7 @@ MeshFilter:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 142376078}
+  - {fileID: 793368259}
   - {fileID: 292305497}
   - {fileID: 1862470160}
   - {fileID: 1434388434}
